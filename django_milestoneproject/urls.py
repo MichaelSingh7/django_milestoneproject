@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mp.views import get_mp_list, create_an_item, edit_an_item, toggle_status
-from accounts.views import index, logout, login
+from accounts.views import index, logout, login, registration
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^toggle/(?P<id>\d+)$', toggle_status),
     url(r'^accounts$', index, name="index"),
     url(r'^accounts/logout/$', logout, name="logout"),
-    url(r'^accounts/login/$', login, name="login")
+    url(r'^accounts/login/$', login, name="login"),
+    url(r'^accounts/register/$', registration, name="registration")
 ]
