@@ -53,10 +53,11 @@ def registration(request):
             registration_form.save()
 
             user = auth.authenticate(username=request.POST['username'],
-                                     password=request.POST['password'])
+                                     password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have registered")
+                return redirect(reverse('index')) 
             else:
                 messages.error(request, "Account registeration failed")
     else:
